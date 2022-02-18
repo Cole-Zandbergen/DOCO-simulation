@@ -1,0 +1,27 @@
+#pragma once
+/*
+	Header file for the World class
+	this class will drive the simulation and contain all of its elements
+	Author: Cole Zandbergen
+*/
+
+#include <iostream>
+#include <fstream>
+#include "Grid.h"
+#include "DOCOList.h"
+
+using namespace std;
+
+class World
+{
+private:
+	Grid map;
+	DOCOList DOCOs;
+
+public:
+	World();
+	~World();
+	void createGrid();
+	void addDOCOs();
+	string update();
+};

@@ -4,11 +4,12 @@
 using namespace std;
 int main()
 {
-	//first problem is that we need to instantiate the parser and read something from it
-	//just to make sure it works
-	//Can't compile this on mac but i added these comments on my mac!
-	//pushing these to github to make sure they work on vs later...
-	DataParser* parser = parser->getInstance("DOCOData01.xml");
+	//first, we need to get the XML file added in
+	string file;
+	cout << "Enter the filepath for your data: ";
+	//enter C:\Users\Cole\Downloads\DOCOData01.xml
+	cin >> file;
+	DataParser* parser = parser->getInstance(file.c_str()); //.c_str converts string to const char* format
 	cout << parser->getFoodCount() << endl;
 	return 0;
 }

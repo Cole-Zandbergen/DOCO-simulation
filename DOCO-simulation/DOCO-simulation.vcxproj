@@ -139,14 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\Downloads\DOCOData01.xml" />
+    <Xml Include="..\..\..\..\Downloads\DOCOData01.xml">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\DataParser.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="DataParser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\DataParser.h" />
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="DataParser.h" />
+    <ClInclude Include="DOCO.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="DOCOList.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

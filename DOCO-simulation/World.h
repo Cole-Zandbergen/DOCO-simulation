@@ -16,12 +16,12 @@ class World
 {
 private:
 	Grid map;
-	DOCOList DOCOs;
+	DOCOList* DOCOs;
 
 public:
-	World();
+	World(const char* filename);
 	~World();
-	void createGrid();
+	Grid createGrid(int height, int width);
 	void addDOCOs();
 	string update();
 };

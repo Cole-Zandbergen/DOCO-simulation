@@ -15,10 +15,10 @@ using namespace std;
 class Grid
 {
 private:
-	vector<vector<Cell*>> Cells;
+	vector<vector<Cell*> > Cells;
 	
 public:
-	Grid();
+	Grid(int width, int height);
 	~Grid();
 	string display();
 	Cell* getCell();

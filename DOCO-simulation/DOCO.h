@@ -15,11 +15,11 @@ class DOCO
 {
 private:
 	int direction;
-	Cell* Cell;
+	Cell* cell;
 	int energyLevel;
 
 public:
-	DOCO();
+	DOCO(Cell* cell);
 	~DOCO();
 	void move();
 	void eat();

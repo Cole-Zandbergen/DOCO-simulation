@@ -15,13 +15,13 @@ using namespace std;
 class World
 {
 private:
-	Grid map;
+	Grid* map;
 	DOCOList* DOCOs;
 
 public:
 	World(const char* filename);
 	~World();
-	Grid createGrid(int height, int width);
-	void addDOCOs();
+	Grid* createGrid(int height, int width);
+	void addDOCO(int xPos, int yPos);
 	string update();
 };

@@ -20,7 +20,7 @@ private:
 	Cell* neighbors[8];
 
 public:
-	Cell();
+	Cell(int x, int y);
 	~Cell();
 	void setNeighbors(Cell[]);
 	Cell* getNeighbor(int n);

@@ -21,5 +21,5 @@ public:
 	DOCOList();
 	~DOCOList();
 	void update();
-	void addDOCO(DOCO d);
+	void addDOCO(DOCO* d);
 };

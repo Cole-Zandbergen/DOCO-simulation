@@ -24,30 +24,71 @@ Grid::Grid(int width, int height) {
 	//Now, for each cell, we must give it its neighbor cells
 	for (int r = 0; r < height; r++) {
 		for (int c = 0; c < width; c++) {
-			//This will get complicated...
+			
 			//first, create a blank array
-			Cell *neighbors[8];
+			Cell *neighbors[8] = {nullptr};
 
 			//start at neighbor 0
 			//this will be the one at due north
 			//we will move clockwise from there until we get all the way around
 
-			if (r == 0) { //this is true if we are at the top of the grid
+			try{
+				neighbors[0] = Cells.at(r-1).at(c-1); //northwest
+			}
+			catch(const out_of_range& e){
 				neighbors[0] = nullptr;
+			}
+
+
+			try{
+				neighbors[1] = Cells.at(r-1).at(c); //due north
+			}
+			catch(const out_of_range& e){
 				neighbors[1] = nullptr;
 			}
-			else { //if we are not at the top of the grid
-				neighbors[0] = Cells.at(r - 1).at(c);
 
-				//now, we can make sure that we are not on the right side of the grid
-				if (c >= width - 1) {
-					neighbors[1] = nullptr;
-				}
-				else { //so we are not on the top, or on the right side
-					neighbors[1] = Cells.at(r - 1).at(c + 1);
-				}
+			try{
+				neighbors[2] = Cells.at(r-1).at(c+1); //northeast
+			}
+			catch(const out_of_range& e)
+			{
+				neighbors[2] = nullptr;
 			}
 
+			try{
+				neighbors[3] = Cells.at(r).at(c+1); //due east
+			}
+			catch(const out_of_range& e){
+				neighbors[3] = nullptr;
+			}
+
+			try{
+				neighbors[4] = Cells.at(r+1).at(c+1); //southeast
+			}
+			catch(const out_of_range& e){
+				neighbors[4] = nullptr;
+			}
+
+			try{
+				neighbors[5] = Cells.at(r+1).at(c); //due south
+			}
+			catch(const out_of_range& e){
+				neighbors[5] = nullptr;
+			}
+
+			try{
+				neighbors[6] = Cells.at(r+1).at(c-1); //southwest
+			}
+			catch(const out_of_range& e){
+				neighbors[6] = nullptr;
+			}
+
+			try{
+				neighbors[7] = Cells.at(r).at(c-1);
+			}
+			catch(const out_of_range& e){
+				neighbors[7] = nullptr;
+			}
 			
 		}
 	}

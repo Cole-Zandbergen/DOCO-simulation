@@ -16,6 +16,8 @@ class Grid
 {
 private:
 	vector<vector<Cell*> > Cells;
+	int width;
+	int height;
 	
 public:
 	Grid(int width, int height);

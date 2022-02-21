@@ -22,7 +22,7 @@ private:
 public:
 	Cell(int x, int y);
 	~Cell();
-	void setNeighbors(Cell[]);
+	void setNeighbors(Cell* newNeighbors[]);
 	Cell* getNeighbor(int n);
 	char display();
 	void addDOCO();
@@ -31,4 +31,5 @@ public:
 	void removeFood();
 	int getxPos();
 	int getyPos();
+	int getNumOfFoodPellets();
 };

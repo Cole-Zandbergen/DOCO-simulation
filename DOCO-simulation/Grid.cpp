@@ -6,12 +6,15 @@
 #include "Grid.h"
 #include <vector>
 #include "Cell.h"
+#include "Random.cpp"
 
 using namespace std;
 
 //Default constructor
-Grid::Grid(int width, int height) {
+Grid::Grid(int w, int h) {
 
+	width = w;
+	height = h;
 	//First, use this loop to create the grid vector
 	for (int y = 0; y < height; y++) {
 		vector<Cell*> temp; //initialize a new vector (couldn't find a better way to do this)
@@ -26,7 +29,7 @@ Grid::Grid(int width, int height) {
 		for (int c = 0; c < width; c++) {
 			
 			//first, create a blank array
-			Cell *neighbors[8] = {nullptr};
+			Cell* neighbors[8];
 
 			//start at neighbor 0
 			//this will be the one at due north
@@ -90,6 +93,44 @@ Grid::Grid(int width, int height) {
 				neighbors[7] = nullptr;
 			}
 			
+			Cells.at(r).at(c)->setNeighbors(neighbors); //pointer?
+
+		}
+	}
+
+}
+
+//Default Destructor
+Grid::~Grid(){
+	
+}
+
+string Grid::display(){
+	string temp = ""; //initialize blank string that will be used for the return value
+	for(int y = 0; y < height; y++){
+		for(int x = 0; x < width; x++){
+			temp += Cells[y][x]->display();
+		}
+		temp += "\n";
+	}
+	return temp;
+}
+
+Cell* Grid::getCell(int x, int y){
+	return Cells[y][x];
+}
+
+Cell* Grid::getCell(){
+	return Cells[random(1, height)][random(1, width)];
+}
+
+void Grid::addFoodPellets(int n){
+	int counter = 0;
+	while(counter < n){
+		Cell* c = getCell(); //c is any random cell in the grid
+		if(c->getNumOfFoodPellets() < 3){ //only run this code if there is not already 3 pellets in the cell, else the loop will simply continue
+			c->addFood();
+			counter++;
 		}
 	}
 }

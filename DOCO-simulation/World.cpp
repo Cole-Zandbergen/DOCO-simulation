@@ -11,6 +11,7 @@
 #include "World.h"
 #include "DOCOList.h"
 #include <vector>
+#include "Random.cpp"
 
 using namespace std;
 
@@ -48,6 +49,11 @@ void World::addDOCO(int x, int y){
 	map->getCell(x, y)->addDOCO();
 }
 
+
 string World::update(){
-	map->addFoodPellets() // ADD A RANDOM GENERATOR HERE (FOUND AT THE TOP OF THE MAIN FILE)
+	string output = "World update snapshot:\n\n\n";
+	map->addFoodPellets(random(1, 10));
+	DOCOs->update();
+	output += map->display();
+	return output;
 }

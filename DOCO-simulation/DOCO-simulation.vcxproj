@@ -144,8 +144,10 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="DataParser.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>

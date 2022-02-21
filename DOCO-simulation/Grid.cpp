@@ -84,7 +84,7 @@ Grid::Grid(int width, int height) {
 			}
 
 			try{
-				neighbors[7] = Cells.at(r).at(c-1);
+				neighbors[7] = Cells.at(r).at(c-1); //due west
 			}
 			catch(const out_of_range& e){
 				neighbors[7] = nullptr;

@@ -15,7 +15,7 @@ using namespace std;
 class DOCOList
 {
 private:
-	vector<DOCO> DOCOs;
+	vector<DOCO*> DOCOs;
 
 public:
 	DOCOList();

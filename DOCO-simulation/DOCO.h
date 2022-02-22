@@ -25,6 +25,7 @@ public:
 	void eat();
 	void sniff();
 	int generateDirection(int prev);
-	int setDirection();
+	int setDirection(int d);
 	int getDirection();
+	int getEnergyLevel();
 };

@@ -24,7 +24,7 @@ public:
 	~Cell();
 	void setNeighbors(Cell* newNeighbors[]);
 	Cell* getNeighbor(int n);
-	char display();
+	string display();
 	void addDOCO();
 	void removeDOCO();
 	void addFood();
@@ -32,4 +32,6 @@ public:
 	int getxPos();
 	int getyPos();
 	int getNumOfFoodPellets();
+	Cell* getNeighbors();
+	bool containsDOCO();
 };

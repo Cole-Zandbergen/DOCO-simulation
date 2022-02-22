@@ -26,4 +26,53 @@ void Cell::setNeighbors(Cell* newNeighbors[]){
     }
 
     //neighbors = newNeighbors;
+    //^^can't do that because arrays are not modifiable??
+}
+
+string Cell::display(){
+    if(hasDOCO){
+        return "*";
+    }
+    else if(numOfFoodPellets > 0){
+        return ".";
+    }
+    else{
+        return "-";
+    }
+}
+
+void Cell::addDOCO(){
+    hasDOCO = true;
+}
+
+void Cell::removeDOCO(){
+    hasDOCO = false;
+}
+
+void Cell::addFood(){
+    numOfFoodPellets++;
+}
+
+void Cell::removeFood(){
+    numOfFoodPellets = 0;
+}
+
+int Cell::getxPos(){
+    return xPos;
+}
+
+int Cell::getyPos(){
+    return yPos;
+}
+
+int Cell::getNumOfFoodPellets(){
+    return numOfFoodPellets;
+}
+
+Cell* Cell::getNeighbors(){
+    return neighbors[0];
+}
+
+bool Cell::containsDOCO(){
+    return hasDOCO;
 }

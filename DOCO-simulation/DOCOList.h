@@ -22,4 +22,5 @@ public:
 	~DOCOList();
 	void update();
 	void addDOCO(DOCO* d);
+	int getSize();
 };

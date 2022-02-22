@@ -134,5 +134,5 @@ string Grid::addFoodPellets(int n){
 		}
 	}
 
-	return "There were " + to_string(n) + " food pellets added in this frame.\n"
+	return "There were " + to_string(n) + " food pellets added in this frame.\n";
 }

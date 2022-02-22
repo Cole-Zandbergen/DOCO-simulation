@@ -44,7 +44,7 @@ int main()
 
 		//print to, then close the output file
 		outfile << world->update() << endl;
-		outfile.close
+		outfile.close();
 
 		counter++;
 	}

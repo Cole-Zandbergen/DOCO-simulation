@@ -124,7 +124,7 @@ Cell* Grid::getCell(){
 	return Cells[random(1, height)][random(1, width)];
 }
 
-void Grid::addFoodPellets(int n){
+string Grid::addFoodPellets(int n){
 	int counter = 0;
 	while(counter < n){
 		Cell* c = getCell(); //c is any random cell in the grid
@@ -133,4 +133,6 @@ void Grid::addFoodPellets(int n){
 			counter++;
 		}
 	}
+
+	return "There were " + to_string(n) + " food pellets added in this frame.\n"
 }

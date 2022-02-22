@@ -24,4 +24,5 @@ public:
 	Grid* createGrid(int height, int width);
 	void addDOCO(int xPos, int yPos);
 	string update();
+	DOCOList* getDOCOs();
 };

@@ -34,3 +34,7 @@ void DOCOList::update(){
 void DOCOList::addDOCO(DOCO* d){
     DOCOs.push_back(d);
 }
+
+int DOCOList::getSize(){
+    return DOCOs.size();
+}

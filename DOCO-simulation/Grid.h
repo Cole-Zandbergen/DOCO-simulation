@@ -25,5 +25,5 @@ public:
 	string display();
 	Cell* getCell();
 	Cell* getCell(int x, int y);
-	void addFoodPellets(int n);
+	string addFoodPellets(int n);
 };

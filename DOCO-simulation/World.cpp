@@ -52,8 +52,14 @@ void World::addDOCO(int x, int y){
 
 string World::update(){
 	string output = "World update snapshot:\n\n\n";
-	map->addFoodPellets(random(1, 10));
+	string foodPellets = map->addFoodPellets(random(1, 10));
 	DOCOs->update();
 	output += map->display();
+	output += foodPellets; //this prints how many food pellets were added in this frame
+	output += "Number of DOCOs still alive: " + to_string(DOCOs->getSize());
 	return output;
+}
+
+DOCOList* World::getDOCOs(){
+	return DOCOs;
 }

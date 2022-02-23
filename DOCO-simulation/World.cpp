@@ -12,6 +12,7 @@
 #include "DOCOList.h"
 #include <vector>
 #include "Random.cpp"
+#include <string>
 
 using namespace std;
 

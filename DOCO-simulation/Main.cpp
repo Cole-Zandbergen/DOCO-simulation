@@ -10,6 +10,7 @@
 #include "random.cpp"
 #include "World.h"
 #include <fstream>
+#include <string>
 
 using namespace std;
 

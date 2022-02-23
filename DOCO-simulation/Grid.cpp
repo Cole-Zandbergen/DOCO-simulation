@@ -7,6 +7,7 @@
 #include <vector>
 #include "Cell.h"
 #include "Random.cpp"
+#include <string>
 
 using namespace std;
 

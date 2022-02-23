@@ -62,3 +62,7 @@ int DOCO::generateDirection(int prev){
 void DOCO::setDirection(int d){
     direction = d;
 }
+
+int DOCO::getEnergyLevel() {
+    return energyLevel;
+}

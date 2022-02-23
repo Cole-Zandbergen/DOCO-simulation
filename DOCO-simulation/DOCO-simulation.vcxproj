@@ -144,6 +144,9 @@
     </Xml>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="DOCO.cpp" />
+    <ClCompile Include="DOCOList.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="DataParser.cpp" />

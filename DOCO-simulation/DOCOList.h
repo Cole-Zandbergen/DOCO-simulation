@@ -20,7 +20,7 @@ private:
 public:
 	DOCOList();
 	~DOCOList();
-	void update();
+	string update();
 	void addDOCO(DOCO* d);
 	int getSize();
 };

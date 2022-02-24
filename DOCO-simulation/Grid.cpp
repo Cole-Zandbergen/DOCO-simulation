@@ -122,7 +122,7 @@ Cell* Grid::getCell(int x, int y){
 }
 
 Cell* Grid::getCell(){
-	return Cells[random(1, height)][random(1, width)];
+	return Cells[random(0, height-1)][random(0, width-1)];
 }
 
 string Grid::addFoodPellets(int n){

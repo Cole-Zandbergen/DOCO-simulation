@@ -69,8 +69,8 @@ int Cell::getNumOfFoodPellets(){
     return numOfFoodPellets;
 }
 
-Cell* Cell::getNeighbors(){
-    return neighbors[0];
+Cell* Cell::getNeighbors(int i){
+    return neighbors[i];
 }
 
 bool Cell::containsDOCO(){

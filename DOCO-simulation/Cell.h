@@ -23,7 +23,6 @@ public:
 	Cell(int x, int y);
 	~Cell();
 	void setNeighbors(Cell* newNeighbors[]);
-	Cell* getNeighbor(int n);
 	string display();
 	void addDOCO();
 	void removeDOCO();
@@ -32,6 +31,6 @@ public:
 	int getxPos();
 	int getyPos();
 	int getNumOfFoodPellets();
-	Cell* getNeighbors();
+	Cell* getNeighbors(int i);
 	bool containsDOCO();
 };

@@ -11,6 +11,8 @@
 #include "World.h"
 #include <fstream>
 #include <string>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -43,11 +45,16 @@ int main()
 		//first, create the output file
 		ofstream outfile (outputDirectory + "/" + simName + "_" + to_string(counter) + ".txt");
 
+		string updateString = world->update();
 		//print to, then close the output file
-		outfile << world->update() << endl;
+		outfile << updateString << endl;
 		outfile.close();
 
+		cout << updateString << endl << endl << endl;
+
 		counter++;
+		/*chrono::seconds oneSecond(1);
+		this_thread::sleep_for(oneSecond);*/
 	}
 	//When the loop ends, that means the simulation is finished
 	cout << "Simulation finished!" << endl;

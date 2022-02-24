@@ -4,6 +4,7 @@
 */
 
 #include "DOCOList.h"
+#include <string>
 
 using namespace std;
 
@@ -18,7 +19,8 @@ DOCOList::~DOCOList(){
     DOCOs.clear();
 }
 
-void DOCOList::update(){
+string DOCOList::update(){
+    string status = "";
     for(int i = 0; i < DOCOs.size(); i++){
         DOCO* currentDOCO = DOCOs[i];
         if(currentDOCO->getEnergyLevel() <= 0){
@@ -27,8 +29,13 @@ void DOCOList::update(){
         }
         else{
             DOCOs[i]->move();
-        } 
+        }
+        status += "DOCO number " + to_string(i) + ":\n";
+        status += "\tDirection: " + to_string(DOCOs[i]->getDirection());
+        status += "\n\tEnergy Level: " + to_string(DOCOs[i]->getEnergyLevel()) + "\n";
     }
+    
+    return status;
 }
 
 void DOCOList::addDOCO(DOCO* d){

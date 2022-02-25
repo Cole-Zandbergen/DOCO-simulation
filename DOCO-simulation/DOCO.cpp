@@ -19,7 +19,8 @@ DOCO::DOCO(Cell* c){
 
 //Default destructor
 DOCO::~DOCO(){
-
+    //remove this DOCO from its cell
+    cell->removeDOCO();
 }
 
 void DOCO::move(){
@@ -38,9 +39,6 @@ void DOCO::move(){
 
 void DOCO::eat(){
     energyLevel += 50*cell->getNumOfFoodPellets();
-    if (cell->getNumOfFoodPellets() > 0) {
-        cout << "DOCO is eating " << cell->getNumOfFoodPellets() << " food pellets at cell location (" << cell->getxPos() << ", " << cell->getyPos() << ")" << endl;
-    }
     cell->removeFood();
     //eat the food and then tell the cell that all of its food is gone
     //this works even when there is no food in the cell

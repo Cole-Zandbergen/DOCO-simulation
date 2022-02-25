@@ -25,7 +25,9 @@ string DOCOList::update(){
         DOCO* currentDOCO = DOCOs[i];
         if(currentDOCO->getEnergyLevel() <= 0){
             delete DOCOs[i]; //this might cause problems.... but i believe it is necessary because erase() will not delete
-            DOCOs.erase(DOCOs.begin()+5);
+            //once we have destroyed the DOCO itself, let's remove it from the vecctor
+            DOCOs.erase(DOCOs.begin() + i);
+            continue;
         }
         else{
             DOCOs[i]->move();

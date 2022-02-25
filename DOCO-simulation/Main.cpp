@@ -50,11 +50,11 @@ int main()
 		outfile << updateString << endl;
 		outfile.close();
 
-		cout << updateString << endl << endl << endl;
+		//cout << updateString << endl << endl << endl;
 
 		counter++;
-		/*chrono::seconds oneSecond(1);
-		this_thread::sleep_for(oneSecond);*/
+		chrono::seconds oneSecond(1);
+		this_thread::sleep_for(oneSecond);
 	}
 	//When the loop ends, that means the simulation is finished
 	cout << "Simulation finished!" << endl;

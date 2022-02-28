@@ -12,6 +12,5 @@ static int random(int min, int max) {
     int size = max - min + 1;
     int n = rand() % size;
     n += min;
-	//cout << "Generated the random number " << n << endl;
 	return n;
 }

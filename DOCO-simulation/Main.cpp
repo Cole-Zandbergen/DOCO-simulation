@@ -1,6 +1,6 @@
 
 /*
-	DOCO Simulation
+	DOCO Simulation: Main function
 	Programming assignment 1 for CS307, spring 2022
 	Author: Cole Zandbergen
 */

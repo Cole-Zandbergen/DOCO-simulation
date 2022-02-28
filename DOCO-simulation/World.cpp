@@ -41,17 +41,30 @@ World::~World(){
 	delete DOCOs;
 }
 
+/*
+	createGrid method
+	This method returns a pointer to a newly created grid with the specified width and height
+*/
 Grid* World::createGrid(int width, int height){
 	return new Grid(width, height);
 }
 
+/*
+	addDOCO method
+	This method adds a DOCO into the world by initializing it, then inserting it into the DOCOs list.
+*/
 void World::addDOCO(int x, int y){
 	DOCO* d = new DOCO(map->getCell(x, y)); //create the DOCO that needs to be added to the list
 	DOCOs->addDOCO(d);
 	map->getCell(x, y)->addDOCO();
 }
 
-
+/*
+	update method
+	This method outputs necessary information about the world.
+	The output string will be populated with all of this information, then returned.
+	This method also displays the map itself to the console, so the user can view it in real time.
+*/
 string World::update(){
 	string output = "World update snapshot:\n\n";
 
@@ -70,6 +83,7 @@ string World::update(){
 	return output;
 }
 
+//Gets the list of DOCOs
 DOCOList* World::getDOCOs(){
 	return DOCOs;
 }

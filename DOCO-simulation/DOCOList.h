@@ -23,4 +23,5 @@ public:
 	string update();
 	void addDOCO(DOCO* d);
 	int getSize();
+	DOCO* getDOCO(int i);
 };

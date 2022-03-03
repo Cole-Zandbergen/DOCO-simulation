@@ -30,6 +30,7 @@ string DOCOList::update(){
     for(int i = 0; i < DOCOs.size(); i++){
         DOCO* currentDOCO = DOCOs[i];
         if(currentDOCO->getEnergyLevel() <= 0){
+            cout << "DOCO number " << i << " just died." << endl;
             delete DOCOs[i]; //this might cause problems.... but i believe it is necessary because erase() will not delete
             //once we have destroyed the DOCO itself, let's remove it from the vecctor
             DOCOs.erase(DOCOs.begin() + i);
@@ -40,6 +41,7 @@ string DOCOList::update(){
         }
         //add in information about the DOCO for the output files
         status += "DOCO number " + to_string(i) + ":\n";
+        status += "\tLocation: (" + to_string(DOCOs[i]->getX()) + ", " + to_string(DOCOs[i]->getY()) + ")\n";
         status += "\tDirection: " + to_string(DOCOs[i]->getDirection());
         status += "\n\tEnergy Level: " + to_string(DOCOs[i]->getEnergyLevel()) + "\n";
     }
@@ -55,4 +57,8 @@ void DOCOList::addDOCO(DOCO* d){
 //Gets the size of the list (number of DOCOs that are alive)
 int DOCOList::getSize(){
     return DOCOs.size();
+}
+
+DOCO* DOCOList::getDOCO(int i) {
+    return DOCOs[i];
 }

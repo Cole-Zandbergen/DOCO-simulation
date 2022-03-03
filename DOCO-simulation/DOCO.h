@@ -28,4 +28,6 @@ public:
 	void setDirection(int d);
 	int getDirection();
 	int getEnergyLevel();
+	int getX();
+	int getY();
 };

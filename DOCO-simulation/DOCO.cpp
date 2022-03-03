@@ -34,7 +34,7 @@ DOCO::~DOCO(){
 */
 void DOCO::move(){
     sniff();
-    while(cell->getNeighbors(direction) == nullptr || (cell->getNeighbors(direction))->containsDOCO()){ 
+    while(cell->getNeighbors(direction) == nullptr || (cell->getNeighbors(direction))->containsDOCO()){
         int newDirection = generateDirection(direction);
         setDirection(newDirection);
     }
@@ -96,4 +96,14 @@ int DOCO::getEnergyLevel() {
 //Gets the DOCO's direction
 int DOCO::getDirection() {
     return direction;
+}
+
+//Gets the DOCO's x coordinate
+int DOCO::getX() {
+    return cell->getxPos();
+}
+
+//Gets the DOCO's y coordinate
+int DOCO::getY() {
+    return cell->getyPos();
 }

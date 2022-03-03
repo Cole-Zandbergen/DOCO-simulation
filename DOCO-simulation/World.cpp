@@ -21,7 +21,6 @@ using namespace std;
 World::World(const char* filename) {
 	DataParser* parser = parser->getInstance(filename);
 	map = createGrid(parser->getDOCOWorldWidth(), parser->getDOCOWorldHeight());
-	map->addFoodPellets(20); //temporary for testing
 	DOCOs = new DOCOList();
 	/*
 	Create placeholder variables for the X and Y coordinates, as well as a char
@@ -68,8 +67,8 @@ void World::addDOCO(int x, int y){
 string World::update(){
 	string output = "World update snapshot:\n\n";
 
-	string foodPellets = map->addFoodPellets(random(0, 10));
 	string DOCOupdate = DOCOs->update();
+	string foodPellets = map->addFoodPellets(random(0, 10));
 
 	string mapDisplay = map->display();
 	
@@ -78,7 +77,9 @@ string World::update(){
 	output += "Number of DOCOs still alive: " + to_string(DOCOs->getSize()) + "\n";
 	output += DOCOupdate;
 
-	cout << mapDisplay << endl << endl << endl;
+	cout << mapDisplay << endl << endl;
+	cout << foodPellets;
+	cout << DOCOs->getSize() << " DOCOs are still alive." << endl;
 
 	return output;
 }

@@ -22,7 +22,7 @@ int main()
 {
 	//first, we need to get the XML file added in
 	string XMLfile;
-	cout << "Enter the filepath for your data: ";
+	cout << "Enter the filepath for where your DOCO data is found: ";
 	//enter C:\Users\Cole\Downloads\DOCOData01.xml
 	cin >> XMLfile;
 
@@ -39,6 +39,7 @@ int main()
 	//Create the world object and pass in that file name
 	World* world = new World(XMLfile.c_str()); //.c_str() converts string to const char* format
 
+	srand(time(0)); //Before we start generating random numbers, change the seed so it won't always be the same
 	int counter = 0; //initialize the counter variable
 	while(world->getDOCOs()->getSize() > 0){ //run the simulation while there are still DOCOs living
 
@@ -53,8 +54,8 @@ int main()
 		//cout << updateString << endl << endl << endl;
 
 		counter++;
-		chrono::seconds oneSecond(1);
-		this_thread::sleep_for(oneSecond);
+		//chrono::seconds oneSecond(1);
+		//this_thread::sleep_for(oneSecond);
 	}
 	//When the loop ends, that means the simulation is finished
 	cout << "Simulation finished!" << endl;

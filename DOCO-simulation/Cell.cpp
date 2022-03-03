@@ -11,7 +11,6 @@ using namespace std;
 Cell::Cell(int x, int y){
     xPos = x;
     yPos = y;
-    //initialize the neighbors array?
     hasDOCO = false;
     numOfFoodPellets = 0;
 }

@@ -28,7 +28,7 @@ World::World(const char* filename) {
 	will pass them as a reference so that they can be modified by the method
 	*/
 	int x, y;
-	char temp;
+	char temp; //this is just a placeholder, since I have to pass a char into the function
 	while(parser->getDOCOData(&temp, &x, &y)){
 		addDOCO(x, y); //add doco to the list
 	}

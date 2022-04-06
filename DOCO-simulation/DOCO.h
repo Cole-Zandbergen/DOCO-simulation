@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include "Cell.h"
+#include "MovementBehavior.h"
 
 using namespace std;
 
@@ -30,4 +31,5 @@ public:
 	int getEnergyLevel();
 	int getX();
 	int getY();
+	void setMovementBehavior(MovementBehavior* mbeh);
 };

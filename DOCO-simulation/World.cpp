@@ -30,7 +30,7 @@ World::World(const char* filename) {
 	int x, y;
 	char temp; //this is just a placeholder, since I have to pass a char into the function
 	while(parser->getDOCOData(&temp, &x, &y)){
-		addDOCO(x, y); //add doco to the list
+		addDOCO(x, y, temp); //add doco to the list
 	}
 }
 
@@ -52,10 +52,9 @@ Grid* World::createGrid(int width, int height){
 	addDOCO method
 	This method adds a DOCO into the world by initializing it, then inserting it into the DOCOs list.
 */
-void World::addDOCO(int x, int y){
-	DOCO* d = new DOCO(map->getCell(x, y)); //create the DOCO that needs to be added to the list
-	DOCOs->addDOCO(d);
-	map->getCell(x, y)->addDOCO();
+void World::addDOCO(int x, int y, char type){
+	//REWRITE
+	//DOCOFactory->getInstance()->createDOCO()
 }
 
 /*

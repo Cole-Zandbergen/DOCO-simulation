@@ -22,7 +22,7 @@ public:
 	World(const char* filename);
 	~World();
 	Grid* createGrid(int height, int width);
-	void addDOCO(int xPos, int yPos);
+	void addDOCO(int xPos, int yPos, char type);
 	string update();
 	DOCOList* getDOCOs();
 };

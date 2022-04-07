@@ -142,7 +142,7 @@ string Grid::addFoodPellets(int n){
 	int counter = 0;
 	while(counter < n){
 		Cell* c = getCell(); //c is any random cell in the grid
-		if(c->getNumOfFoodPellets() < 3){ //only run this code if there is not already 3 pellets in the cell, else the loop will simply continue
+		if(c->getNumOfFoodPellets() < 3 && !c->isObstacle() && !c->containsDOCO()){ //only run this code if there is not already 3 pellets in the cell, else the loop will simply continue
 			c->addFood();
 			counter++;
 		}

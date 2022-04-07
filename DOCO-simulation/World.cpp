@@ -59,8 +59,9 @@ World::World(const char* filename) {
 	
 	while (parser->getObstacleData(&x, &y)) {
 		map->getCell(x, y)->setObstacle();
-		cout << "setting cell at " << x << ", " << y << " to be an obstacle";
 	}
+
+	map->addFoodPellets(parser->getFoodCount());
 }
 
 //Default destructor

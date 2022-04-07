@@ -12,7 +12,7 @@ using namespace std;
 
 //Default constructor
 DOCO::DOCO(Cell* c){
-    //direction = mbeh->generateDirection(-1); //prev is -1 because there is no previous
+    ///direction = mbeh->generateDirection(-1); //prev is -1 because there is no previous
     cell = c;
     energyLevel = 500;
 }
@@ -35,9 +35,16 @@ DOCO::~DOCO(){
 void DOCO::move(){
     int s = sniff();
     if(s == -1){
+        int counter = 0;
         while (cell->getNeighbors(direction) == nullptr || (cell->getNeighbors(direction))->containsDOCO() || cell->getNeighbors(direction)->isObstacle()) {
             int newDirection = mbeh->generateDirection(direction);
             setDirection(newDirection);
+            counter++;
+            //If this runs too many times, that means we are stuck, and will go any direction to escape
+            if (counter > 20) {
+                int newDirection = random(0, 3);
+                setDirection(newDirection * 2 + 1); //No diagonal movements, that would be weird.
+            }
         }
         cell->removeDOCO();
         cell = cell->getNeighbors(direction);

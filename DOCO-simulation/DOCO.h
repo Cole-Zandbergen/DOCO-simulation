@@ -18,18 +18,21 @@ private:
 	int direction;
 	Cell* cell;
 	int energyLevel;
+	MovementBehavior* mbeh;
 
 public:
 	DOCO(Cell* cell);
 	~DOCO();
 	void move();
 	void eat();
-	void sniff();
-	int generateDirection(int prev);
+	int sniff();
+	//int generateDirection(int prev);
 	void setDirection(int d);
 	int getDirection();
 	int getEnergyLevel();
 	int getX();
 	int getY();
 	void setMovementBehavior(MovementBehavior* mbeh);
+	DOCO* split();
+	string display();
 };

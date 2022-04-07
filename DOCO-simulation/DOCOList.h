@@ -24,4 +24,5 @@ public:
 	void addDOCO(DOCO* d);
 	int getSize();
 	DOCO* getDOCO(int i);
+	void splitDOCO(DOCO* d);
 };

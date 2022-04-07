@@ -39,6 +39,21 @@
     <ClCompile Include="DOCO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DOCOFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HorizontalMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VerticalMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DiagonalMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataParser.h">
@@ -57,6 +72,21 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="DOCO.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DOCOFactory.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HorizontalMovement.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementBehavior.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VerticalMovement.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DiagonalMovement.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

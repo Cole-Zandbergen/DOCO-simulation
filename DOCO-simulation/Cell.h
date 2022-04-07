@@ -18,13 +18,15 @@ private:
 	int numOfFoodPellets;
 	bool hasDOCO;
 	Cell* neighbors[8];
+	bool obstacle;
+	string DOCOsymbol;
 
 public:
 	Cell(int x, int y);
 	~Cell();
 	void setNeighbors(Cell* newNeighbors[]);
 	string display();
-	void addDOCO();
+	void addDOCO(string s);
 	void removeDOCO();
 	void addFood();
 	void removeFood();
@@ -33,4 +35,6 @@ public:
 	int getNumOfFoodPellets();
 	Cell* getNeighbors(int i);
 	bool containsDOCO();
+	void setObstacle();
+	bool isObstacle();
 };

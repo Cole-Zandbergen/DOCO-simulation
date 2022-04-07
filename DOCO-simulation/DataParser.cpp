@@ -5,7 +5,6 @@
 //================================================================
 #define _CRT_SECURE_NO_DEPRECATE // Shut up MS, about strcpy(), etc.
 #define _CRT_SECURE_NO_WARNINGS  //   just don't say anything.
-
 #include "DataParser.h"
 #include <cctype>
 

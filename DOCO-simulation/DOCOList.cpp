@@ -2,7 +2,7 @@
     Implementation file for the DOCOList class
     Author: Cole Zandbergen
 */
-
+#pragma once
 #include "DOCOList.h"
 #include <string>
 
@@ -36,6 +36,9 @@ string DOCOList::update(){
             DOCOs.erase(DOCOs.begin() + i);
             continue;
         }
+        else if (currentDOCO->getEnergyLevel() > 750) {
+            splitDOCO(currentDOCO);
+        }
         else{
             DOCOs[i]->move();
         }
@@ -61,4 +64,9 @@ int DOCOList::getSize(){
 
 DOCO* DOCOList::getDOCO(int i) {
     return DOCOs[i];
+}
+
+void DOCOList::splitDOCO(DOCO* d)
+{
+    addDOCO(d->split());
 }

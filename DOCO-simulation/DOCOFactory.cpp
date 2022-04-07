@@ -2,12 +2,14 @@
     Implementation file for the singleton class DOCOFactory
     Author: Cole Zandbergen
 */
-
+#pragma once
 #include "DOCOFactory.h"
 #include "Cell.h"
 #include "DOCO.h"
 #include "MovementBehavior.h"
 #include "HorizontalMovement.h"
+#include "VerticalMovement.h"
+#include "DiagonalMovement.h"
 
 using namespace std;
 
@@ -31,14 +33,24 @@ DOCOFactory* DOCOFactory::getInstance(){
     return theInstance;
 }
 
-DOCO* createDOCO(Cell* cell, char* type){
+DOCO* DOCOFactory::createDOCO(Cell* cell, string type){
     //You can't do a switch statement on a string.... so I will have to just use if/else 
     DOCO* d = new DOCO(cell);
 
-    if(strcmp(type, "HORIZONTAL") == 0){
-        d->setMovementBehavior(new MovementBehavior());
+    if(type.compare("HORIZONTAL") == 0) {
+        MovementBehavior* mbeh = new HorizontalMovement();
+        d->setMovementBehavior(mbeh);
+        d->setDirection(mbeh->generateDirection(-1));
         return d;
-    } else if(strcmp(type, "VERTICAL") == 0){
-        d->setMovementBehavior(new VerticalMovement());
+    } else if(type.compare("VERTICAL") == 0) {
+        MovementBehavior* mbeh = new VerticalMovement();
+        d->setMovementBehavior(mbeh);
+        d->setDirection(mbeh->generateDirection(-1));
+        return d;
+    } else {
+        MovementBehavior* mbeh = new DiagonalMovement();
+        d->setMovementBehavior(mbeh);
+        d->setDirection(mbeh->generateDirection(-1));
+        return d;
     }
 }

@@ -2,7 +2,7 @@
 	Source file for the grid class
 	Author: Cole Zandbergen
 */
-
+#pragma once
 #include "Grid.h"
 #include <vector>
 #include "Cell.h"

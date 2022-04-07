@@ -146,19 +146,29 @@
   <ItemGroup>
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="DOCO.cpp" />
+    <ClCompile Include="DOCOFactory.cpp" />
     <ClCompile Include="DOCOList.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="HorizontalMovement.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="DataParser.cpp" />
+    <ClCompile Include="MovementBehavior.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="DiagonalMovement.cpp" />
+    <ClCompile Include="VerticalMovement.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
     <ClInclude Include="DataParser.h" />
+    <ClInclude Include="DiagonalMovement.h" />
     <ClInclude Include="DOCO.h" />
+    <ClInclude Include="DOCOFactory.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="DOCOList.h" />
+    <ClInclude Include="HorizontalMovement.h" />
+    <ClInclude Include="MovementBehavior.h" />
+    <ClInclude Include="VerticalMovement.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

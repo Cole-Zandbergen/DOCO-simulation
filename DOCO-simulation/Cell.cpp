@@ -2,9 +2,8 @@
     Source File for the Cell class
     Author: Cole Zandbergen
 */
-
+#pragma once
 #include "Cell.h"
-
 using namespace std;
 
 //Constructor method
@@ -13,6 +12,8 @@ Cell::Cell(int x, int y){
     yPos = y;
     hasDOCO = false;
     numOfFoodPellets = 0;
+    obstacle = false;
+    DOCOsymbol = "-";
 }
 
 //Destructor method
@@ -35,12 +36,16 @@ void Cell::setNeighbors(Cell* newNeighbors[]){
     Returns nothing but a character indicating what this cell contains. 
     The options are:
         1) A DOCO
+        2) An obstacle
         2) A Food Pellet
         3) Nothing
 */
 string Cell::display(){
     if(hasDOCO){
-        return "*";
+        return DOCOsymbol;
+    }
+    else if (obstacle) {
+        return "\xb2";
     }
     else if(numOfFoodPellets > 0){
         return ".";
@@ -55,8 +60,9 @@ string Cell::display(){
     Will be called when a DOCO enters the cell.
     Used to indicate to the cell that there is a DOCO inside of it now.
 */
-void Cell::addDOCO(){
+void Cell::addDOCO(string s){
     hasDOCO = true;
+    DOCOsymbol = s;
 }
 
 /*
@@ -65,6 +71,7 @@ void Cell::addDOCO(){
 */
 void Cell::removeDOCO(){
     hasDOCO = false;
+    DOCOsymbol = "-";
 }
 
 /*
@@ -111,6 +118,14 @@ Cell* Cell::getNeighbors(int i){
 }
 
 //Returns whether or not there is a DOCO in the cell
-bool Cell::containsDOCO(){
+bool Cell::containsDOCO() {
     return hasDOCO;
+}
+
+void Cell::setObstacle() {
+    obstacle = true;
+}
+
+bool Cell::isObstacle() {
+    return obstacle;
 }

@@ -2,7 +2,8 @@
 	This file contains the method for generating random numbers that will be used for this program
 	Author: Cole Zandbergen
 */
-
+#ifndef RANDOM
+#define RANDOM
 #include <random>
 #include <iostream>
 
@@ -14,3 +15,5 @@ static int random(int min, int max) {
     n += min;
 	return n;
 }
+
+#endif

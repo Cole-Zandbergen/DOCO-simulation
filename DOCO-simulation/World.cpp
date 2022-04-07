@@ -2,7 +2,7 @@
 	Source file for the World class
 	Author:Cole Zandbergen
 */
-
+#pragma once
 #include <iostream>
 #include <fstream>
 #include "Grid.h"
@@ -11,26 +11,55 @@
 #include "World.h"
 #include "DOCOList.h"
 #include <vector>
-#include "Random.cpp"
+//#include "Random.cpp"
 #include <string>
+#include "DOCO.h"
+
 
 using namespace std;
 
 
-//Default constructor
+//getInstance method returns the current instance, or creates a new one with a new filename
+World* World::getInstance(const char* filename) {
+	static World* theInstance;
+	if (theInstance == nullptr) {
+		return new World(filename);
+	}
+	else if(strcmp(theInstance->inputFile, filename) == 0) {
+		return theInstance;
+	}
+	else {
+		delete theInstance;
+		theInstance = new World(filename);
+		return theInstance;
+	}
+}
+
+//Default private constructor - since this class is a singleton
 World::World(const char* filename) {
-	DataParser* parser = parser->getInstance(filename);
+	inputFile = filename;
+	DOCOCreator = DOCOCreator->getInstance();
+	DataParser* parser = parser->getInstance(inputFile);
 	map = createGrid(parser->getDOCOWorldWidth(), parser->getDOCOWorldHeight());
 	DOCOs = new DOCOList();
 	/*
-	Create placeholder variables for the X and Y coordinates, as well as a char
-	because the method requires a char as a parameter
-	will pass them as a reference so that they can be modified by the method
+		Create placeholder variables for the X and Y coordinates, as well as a char
+		because the method requires a char as a parameter
+		will pass them as a reference so that they can be modified by the method
 	*/
 	int x, y;
-	char temp; //this is just a placeholder, since I have to pass a char into the function
-	while(parser->getDOCOData(&temp, &x, &y)){
+	char temp[20];
+	
+	
+	while(parser->getDOCOData(temp, &x, &y)){
+		//string s = string(temp);
 		addDOCO(x, y, temp); //add doco to the list
+		memset(temp, 0, 20);
+	}
+	
+	while (parser->getObstacleData(&x, &y)) {
+		map->getCell(x, y)->setObstacle();
+		cout << "setting cell at " << x << ", " << y << " to be an obstacle";
 	}
 }
 
@@ -52,9 +81,13 @@ Grid* World::createGrid(int width, int height){
 	addDOCO method
 	This method adds a DOCO into the world by initializing it, then inserting it into the DOCOs list.
 */
-void World::addDOCO(int x, int y, char type){
-	//REWRITE
-	//DOCOFactory->getInstance()->createDOCO()
+void World::addDOCO(int x, int y, string type){
+	//To add a DOCO, we need to send it a cell to spawn into
+	//Then we also need to send it a type so that the factory knows which behavior pattern to give the DOCO
+	Cell* homeCell = map->getCell(x, y);
+	DOCO* d = DOCOCreator->createDOCO(homeCell, type);
+	DOCOs->addDOCO(d);
+	homeCell->addDOCO(d->display());
 }
 
 /*

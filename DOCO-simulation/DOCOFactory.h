@@ -1,5 +1,5 @@
 //This is the header file for the DOCOFactory class
-
+#pragma once
 #include "Cell.h"
 #include "DOCO.h"
 
